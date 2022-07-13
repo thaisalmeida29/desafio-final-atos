@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "desafio-final-atos", "desafio-final-atos.csproj", "{07B80E36-6645-41F2-B324-4D5C06EB35CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07B80E36-6645-41F2-B324-4D5C06EB35CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B80E36-6645-41F2-B324-4D5C06EB35CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B80E36-6645-41F2-B324-4D5C06EB35CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B80E36-6645-41F2-B324-4D5C06EB35CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EE94439-750E-46A2-976D-FE5A34209475}
+	EndGlobalSection
+EndGlobal

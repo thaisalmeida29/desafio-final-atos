@@ -1,0 +1,55 @@
+﻿@model IEnumerable<desafio_final_atos.Models.Venda>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+       
+@foreach (var item in Model) {
+        <tr>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+ <div class="form-floating">
+            <select class="form-select">
+
+                <option selected >Selecione um produto</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item."> @Html.DisplayFor(modelItem => item.Nome)</option>
+                }
+            </select>
+            <label></label>
+            <span class="text-danger"></span>
+        </div>
