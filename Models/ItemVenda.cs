@@ -6,21 +6,23 @@ namespace desafio_final_atos.Models
     public class ItemVenda
     {
         [Key()]
-        public int Id { get; set; }
+        public int IdItemVenda { get; set; }
         [ForeignKey("Venda")]
+        [Display(Name = "Id da Venda")]
         public int IdVenda { get; set; }
         public virtual Venda Venda { get; set; }
 
         [ForeignKey("Produto")]
+        [Display(Name = "Id do Produto")]
         public int IdProduto { get; set; }
         public virtual Produto Produto { get; set; }
 
         public string Nome { get; set; }
 
         public int Quantidade { get; set; }
-
+        [Display(Name = "Preço Unitário")]
         public decimal PrecoUnitario { get; set; }
-
+        [Display(Name = "Preço Total")]
         public decimal PrecoTotal { get; set; }
 
     }

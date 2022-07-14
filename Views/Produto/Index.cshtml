@@ -24,9 +24,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Estoque)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Marca)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -46,12 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Estoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Marca)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdProduto">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdProduto">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdProduto">Delete</a>
             </td>
         </tr>
 }

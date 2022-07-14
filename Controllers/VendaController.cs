@@ -22,9 +22,8 @@ namespace desafio_final_atos.Controllers
         // GET: Venda
         public async Task<IActionResult> Index()
         {
-              return _context.Venda != null ? 
-                          View(await _context.Venda.ToListAsync()) :
-                          Problem("Entity set 'desafio_final_atosContext.Venda'  is null.");
+            var desafio_final_atosContext = _context.Venda.Include(v => v.Cliente);
+            return View(await desafio_final_atosContext.ToListAsync());
         }
 
         // GET: Venda/Details/5
@@ -36,7 +35,8 @@ namespace desafio_final_atos.Controllers
             }
 
             var venda = await _context.Venda
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(v => v.Cliente)
+                .FirstOrDefaultAsync(m => m.IdVenda == id);
             if (venda == null)
             {
                 return NotFound();
@@ -48,6 +48,7 @@ namespace desafio_final_atos.Controllers
         // GET: Venda/Create
         public IActionResult Create()
         {
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,IdCliente")] Venda venda)
+        public async Task<IActionResult> Create([Bind("IdVenda,IdCliente,NomeProduto")] Venda venda)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +65,7 @@ namespace desafio_final_atos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
             return View(venda);
         }
 
@@ -80,6 +82,7 @@ namespace desafio_final_atos.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
             return View(venda);
         }
 
@@ -88,9 +91,9 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,IdCliente")] Venda venda)
+        public async Task<IActionResult> Edit(int id, [Bind("IdVenda,IdCliente,NomeProduto")] Venda venda)
         {
-            if (id != venda.Id)
+            if (id != venda.IdVenda)
             {
                 return NotFound();
             }
@@ -104,7 +107,7 @@ namespace desafio_final_atos.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VendaExists(venda.Id))
+                    if (!VendaExists(venda.IdVenda))
                     {
                         return NotFound();
                     }
@@ -115,6 +118,7 @@ namespace desafio_final_atos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
             return View(venda);
         }
 
@@ -127,7 +131,8 @@ namespace desafio_final_atos.Controllers
             }
 
             var venda = await _context.Venda
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(v => v.Cliente)
+                .FirstOrDefaultAsync(m => m.IdVenda == id);
             if (venda == null)
             {
                 return NotFound();
@@ -157,7 +162,7 @@ namespace desafio_final_atos.Controllers
 
         private bool VendaExists(int id)
         {
-          return (_context.Venda?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Venda?.Any(e => e.IdVenda == id)).GetValueOrDefault();
         }
     }
 }

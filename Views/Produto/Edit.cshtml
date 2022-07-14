@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IdProduto" />
             <div class="form-group">
                 <label asp-for="CodEAN" class="control-label"></label>
                 <input asp-for="CodEAN" class="form-control" />
@@ -32,11 +32,6 @@
                 <label asp-for="Estoque" class="control-label"></label>
                 <input asp-for="Estoque" class="form-control" />
                 <span asp-validation-for="Estoque" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

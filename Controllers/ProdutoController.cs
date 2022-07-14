@@ -36,7 +36,7 @@ namespace desafio_final_atos.Controllers
             }
 
             var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdProduto == id);
             if (produto == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CodEAN,Nome,Preco,Estoque,Marca")] Produto produto)
+        public async Task<IActionResult> Create([Bind("IdProduto,CodEAN,Nome,Preco,Estoque")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -88,9 +88,9 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CodEAN,Nome,Preco,Estoque,Marca")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("IdProduto,CodEAN,Nome,Preco,Estoque")] Produto produto)
         {
-            if (id != produto.Id)
+            if (id != produto.IdProduto)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace desafio_final_atos.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProdutoExists(produto.Id))
+                    if (!ProdutoExists(produto.IdProduto))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace desafio_final_atos.Controllers
             }
 
             var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdProduto == id);
             if (produto == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace desafio_final_atos.Controllers
 
         private bool ProdutoExists(int id)
         {
-          return (_context.Produto?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Produto?.Any(e => e.IdProduto == id)).GetValueOrDefault();
         }
     }
 }

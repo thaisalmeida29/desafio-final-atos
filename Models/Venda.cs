@@ -6,13 +6,15 @@ namespace desafio_final_atos.Models
     public class Venda
     {
         [Key()]
-        public int Id { get; set; }
+        public int IdVenda { get; set; }
         [ForeignKey("Cliente")]
+        [Display(Name = "Id do Cliente")]
         public int IdCliente { get; set; }
         public virtual Cliente Cliente { get; set; }
 
-        [Required]
-        public string Nome { get; set; }
+      
+        [Display(Name = "Produto")]
+        public string NomeProduto { get; set; }
      
         public List<ItemVenda> ItemVendas { get; set; } = new List<ItemVenda>();
 

@@ -6,7 +6,6 @@
 
 <h1>Index</h1>
 
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -14,42 +13,29 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                @Html.DisplayNameFor(model => model.Cliente)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdCliente)
+                @Html.DisplayNameFor(model => model.NomeProduto)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-
-       
 @foreach (var item in Model) {
         <tr>
-         
             <td>
-                @Html.DisplayFor(modelItem => item.IdCliente)
+                @Html.DisplayFor(modelItem => item.Cliente.Cep)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                @Html.DisplayFor(modelItem => item.NomeProduto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdVenda">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdVenda">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdVenda">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-
- <div class="form-floating">
-            <select class="form-select">
-
-                <option selected >Selecione um produto</option>
-                @foreach (var item in Model)
-                {
-                    <option value="@item."> @Html.DisplayFor(modelItem => item.Nome)</option>
-                }
-            </select>
-            <label></label>
-            <span class="text-danger"></span>
-        </div>

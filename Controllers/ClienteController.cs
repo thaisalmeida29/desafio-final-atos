@@ -36,7 +36,7 @@ namespace desafio_final_atos.Controllers
             }
 
             var cliente = await _context.Cliente
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Email,Cpf,Cep,Bairro,Estado,Complemento,Cidade")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("IdCliente,Nome,Email,Cpf,Cep,Bairro,Estado,Complemento,Cidade")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -88,9 +88,9 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,Cpf,Cep,Bairro,Estado,Complemento,Cidade")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCliente,Nome,Email,Cpf,Cep,Bairro,Estado,Complemento,Cidade")] Cliente cliente)
         {
-            if (id != cliente.Id)
+            if (id != cliente.IdCliente)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace desafio_final_atos.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(cliente.Id))
+                    if (!ClienteExists(cliente.IdCliente))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace desafio_final_atos.Controllers
             }
 
             var cliente = await _context.Cliente
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace desafio_final_atos.Controllers
 
         private bool ClienteExists(int id)
         {
-          return (_context.Cliente?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Cliente?.Any(e => e.IdCliente == id)).GetValueOrDefault();
         }
     }
 }
