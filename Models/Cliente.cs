@@ -4,7 +4,7 @@ namespace desafio_final_atos.Models
 {
     public class Cliente
     {
-        [Key]
+        [Key()]
         public int IdCliente { get; set; }
         [Required]
         public string Nome { get; set; }
@@ -14,11 +14,12 @@ namespace desafio_final_atos.Models
         public string Cpf { get; set; }
         [Required]
         public string Cep { get; set; }
-        public string Bairro{ get; set; }
+        public string Bairro { get; set; }
         public string Estado { get; set; }
         public string Complemento { get; set; }
         public string Cidade { get; set; }
 
-        
+
+
     }
 }

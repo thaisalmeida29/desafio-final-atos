@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<desafio_final_atos.Models.Cliente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cliente";
 }
 
 <h1>Index</h1>
@@ -67,9 +67,9 @@
                 @Html.DisplayFor(modelItem => item.Cidade)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdCliente">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdCliente">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdCliente">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdCliente">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCliente">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCliente">Deletar</a>
             </td>
         </tr>
 }

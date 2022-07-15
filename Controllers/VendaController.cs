@@ -22,7 +22,7 @@ namespace desafio_final_atos.Controllers
         // GET: Venda
         public async Task<IActionResult> Index()
         {
-            var desafio_final_atosContext = _context.Venda.Include(v => v.Cliente);
+            var desafio_final_atosContext = _context.Venda.Include(v => v.Cliente).Include(v => v.Produto);
             return View(await desafio_final_atosContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace desafio_final_atos.Controllers
 
             var venda = await _context.Venda
                 .Include(v => v.Cliente)
+                .Include(v => v.Produto)
                 .FirstOrDefaultAsync(m => m.IdVenda == id);
             if (venda == null)
             {
@@ -48,7 +49,8 @@ namespace desafio_final_atos.Controllers
         // GET: Venda/Create
         public IActionResult Create()
         {
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep");
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome");
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome");
             return View();
         }
 
@@ -57,15 +59,15 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdVenda,IdCliente,NomeProduto")] Venda venda)
+        public async Task<IActionResult> Create([Bind("IdVenda,IdCliente,IdProduto,Quantidade,PrecoUnitario,PrecoTotal")] Venda venda)
         {
-            if (ModelState.IsValid)
-            {
+           
                 _context.Add(venda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
+            
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome", venda.IdCliente);
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", venda.IdProduto);
             return View(venda);
         }
 
@@ -83,6 +85,7 @@ namespace desafio_final_atos.Controllers
                 return NotFound();
             }
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "CodEAN", venda.IdProduto);
             return View(venda);
         }
 
@@ -91,7 +94,7 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdVenda,IdCliente,NomeProduto")] Venda venda)
+        public async Task<IActionResult> Edit(int id, [Bind("IdVenda,IdCliente,IdProduto,Quantidade,PrecoUnitario,PrecoTotal")] Venda venda)
         {
             if (id != venda.IdVenda)
             {
@@ -119,6 +122,7 @@ namespace desafio_final_atos.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "CodEAN", venda.IdProduto);
             return View(venda);
         }
 
@@ -132,6 +136,7 @@ namespace desafio_final_atos.Controllers
 
             var venda = await _context.Venda
                 .Include(v => v.Cliente)
+                .Include(v => v.Produto)
                 .FirstOrDefaultAsync(m => m.IdVenda == id);
             if (venda == null)
             {

@@ -20,6 +20,6 @@ namespace desafio_final_atos.Data
 
         public DbSet<desafio_final_atos.Models.Venda>? Venda { get; set; }
 
-        public DbSet<desafio_final_atos.Models.ItemVenda>? ItemVenda { get; set; }
+       
     }
 }

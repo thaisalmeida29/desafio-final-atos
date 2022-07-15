@@ -18,10 +18,6 @@ namespace desafio_final_atos.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         public IActionResult Cliente()
         {
@@ -35,10 +31,7 @@ namespace desafio_final_atos.Controllers
         {
             return View();
         }
-        public IActionResult ItemVenda()
-        {
-            return View();
-        }
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
