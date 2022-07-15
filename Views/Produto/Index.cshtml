@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-danger">
     <thead>
         <tr>
             <th>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Estoque)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdProduto">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdProduto">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdProduto">Deletar</a>
+                <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.IdProduto">Editar</a> 
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.IdProduto">Detalhes</a> 
+                <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.IdProduto">Deletar</a>
             </td>
         </tr>
 }

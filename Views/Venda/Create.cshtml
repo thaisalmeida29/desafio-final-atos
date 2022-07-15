@@ -19,6 +19,7 @@
             <div class="form-group">
                 <label asp-for="IdProduto" class="control-label"></label>
                 <select asp-for="IdProduto" class ="form-control" asp-items="ViewBag.IdProduto"></select>
+               
             </div>
             <div class="form-group">
                 <label asp-for="Quantidade" class="control-label"></label>
@@ -27,7 +28,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="PrecoUnitario" class="control-label"></label>
-                <input asp-for="PrecoUnitario" class="form-control" />
+               
+                 <select asp-for="PrecoUnitario" class ="form-control" asp-items="ViewBag.Preco"></select>
                 <span asp-validation-for="PrecoUnitario" class="text-danger"></span>
             </div>
             <div class="form-group">

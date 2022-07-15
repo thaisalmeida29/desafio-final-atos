@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Cadastrar Venda</a>
 </p>
-<table class="table">
+<table class="table table-danger">
     <thead>
         <tr>
             <th>
@@ -43,15 +43,15 @@
                 @Html.DisplayFor(modelItem => item.Quantidade)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PrecoUnitario)
+                @Html.DisplayFor(modelItem => item.Produto.Preco)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PrecoTotal)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdVenda">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.IdVenda">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdVenda">Deletar</a>
+                <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.IdVenda">Editar</a> 
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.IdVenda">Detalhes</a> 
+                <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.IdVenda">Deletar</a>
             </td>
         </tr>
 }

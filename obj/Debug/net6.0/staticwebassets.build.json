@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/X4b+U6ftPvAenQRVPQ2IXVzIvVh6BZV/u5ShQEzIfk=",
+  "Hash": "41o56+qTWXaCu3XJKeMgzi3vdIG2x/ILOSJx+TxnDN0=",
   "Source": "desafio-final-atos",
   "BasePath": "_content/desafio-final-atos",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\desafio-final-atos.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\background-cinza-para-site.jpg",
+      "SourceId": "desafio-final-atos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\",
+      "BasePath": "_content/desafio-final-atos",
+      "RelativePath": "css/background-cinza-para-site.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\background-cinza-para-site.jpg"
+    },
+    {
       "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\FotoPrincipal.png",
       "SourceId": "desafio-final-atos",
       "SourceType": "Discovered",
@@ -66,23 +83,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\FotoPrincipal.png"
-    },
-    {
-      "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\Imagens\\FotoPrincipal.png",
-      "SourceId": "desafio-final-atos",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\",
-      "BasePath": "_content/desafio-final-atos",
-      "RelativePath": "css/Imagens/FotoPrincipal.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Imagens\\FotoPrincipal.png"
     },
     {
       "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\logo.png",

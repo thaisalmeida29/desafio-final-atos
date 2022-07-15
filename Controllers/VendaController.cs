@@ -51,6 +51,7 @@ namespace desafio_final_atos.Controllers
         {
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome");
             ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome");
+            ViewData["Preco"] = new SelectList(_context.Produto, "Preco", "Preco");
             return View();
         }
 
@@ -68,6 +69,7 @@ namespace desafio_final_atos.Controllers
             
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome", venda.IdCliente);
             ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", venda.IdProduto);
+            ViewData["Preco"] = new SelectList(_context.Produto, "Preco", "Preco", venda.IdProduto);
             return View(venda);
         }
 
