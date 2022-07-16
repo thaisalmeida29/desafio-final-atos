@@ -26,6 +26,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PrecoTotal)
+              
             </th>
             <th></th>
         </tr>
@@ -45,7 +46,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Produto.Preco)
             </td>
-            <td>
+            <td class="preco">
                 @Html.DisplayFor(modelItem => item.PrecoTotal)
             </td>
             <td>
@@ -59,4 +60,7 @@
    
 </table>
 
+<td><button class='value-plus btn-danger'>Pegar Valores</button></td>
 
+
+ 

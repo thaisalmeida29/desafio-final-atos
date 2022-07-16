@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "41o56+qTWXaCu3XJKeMgzi3vdIG2x/ILOSJx+TxnDN0=",
+  "Hash": "oQRUslWLaMUkC/LB2AICQU7Fti5k2yK4E4yXUCnWN3c=",
   "Source": "desafio-final-atos",
   "BasePath": "_content/desafio-final-atos",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\FotoPrincipal.png"
+    },
+    {
+      "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\ft.jpg",
+      "SourceId": "desafio-final-atos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\",
+      "BasePath": "_content/desafio-final-atos",
+      "RelativePath": "css/ft.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ft.jpg"
     },
     {
       "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\logo.png",

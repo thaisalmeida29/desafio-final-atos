@@ -24,32 +24,32 @@
         </div>
         <div class="col-md-6">
             <label asp-for="Cpf" class="control-label"></label>
-            <input asp-for="Cpf" class="form-control" />
+            <input id="cep" asp-for="Cpf" class="form-control" />
             <span asp-validation-for="Cpf" class="text-danger"></span>
         </div>
         <div class="col-md-6">
             <label asp-for="Cep" class="control-label"></label>
-            <input asp-for="Cep" class="form-control" />
+            <input id="Cep" asp-for="Cep" class="form-control" onblur="pesquisacep()"/>
             <span asp-validation-for="Cep" class="text-danger"></span>
         </div>
         <div class="col-md-6">
             <label asp-for="Bairro" class="control-label"></label>
-            <input asp-for="Bairro" class="form-control" />
+            <input id="bairro" asp-for="Bairro" class="form-control" />
             <span asp-validation-for="Bairro" class="text-danger"></span>
         </div>
         <div class="col-md-6">
             <label asp-for="Estado" class="control-label"></label>
-            <input asp-for="Estado" class="form-control" />
+            <input id="estado" asp-for="Estado" class="form-control" />
             <span asp-validation-for="Estado" class="text-danger"></span>
         </div>
         <div class="col-md-6">
             <label asp-for="Complemento" class="control-label"></label>
-            <input asp-for="Complemento" class="form-control" />
+            <input id="endereco" asp-for="Complemento" class="form-control" />
             <span asp-validation-for="Complemento" class="text-danger"></span>
         </div>
         <div class="col-md-6">
             <label asp-for="Cidade" class="control-label"></label>
-            <input asp-for="Cidade" class="form-control" />
+            <input id="cidade" asp-for="Cidade" class="form-control" />
             <span asp-validation-for="Cidade" class="text-danger"></span>
         </div>
         <div class="col-md-3">
