@@ -86,8 +86,8 @@ namespace desafio_final_atos.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
-            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "CodEAN", venda.IdProduto);
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome", venda.IdCliente);
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", venda.IdProduto);
             return View(venda);
         }
 
@@ -99,10 +99,10 @@ namespace desafio_final_atos.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("IdVenda,IdCliente,IdProduto,Quantidade,PrecoUnitario,PrecoTotal")] Venda venda)
         {
             if (id != venda.IdVenda)
-            {
-                return NotFound();
+           {
+               return NotFound();
             }
-
+        
             if (ModelState.IsValid)
             {
                 try
@@ -123,13 +123,13 @@ namespace desafio_final_atos.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cep", venda.IdCliente);
-            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "CodEAN", venda.IdProduto);
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome", venda.IdCliente);
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", venda.IdProduto);
             return View(venda);
         }
 
-        // GET: Venda/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+            // GET: Venda/Delete/5
+            public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Venda == null)
             {

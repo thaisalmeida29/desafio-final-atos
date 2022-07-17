@@ -10,15 +10,17 @@ $(function () {
     $(document).on('click', '.btn-danger', function (e) {
         e.preventDefault;
        //var preco = $(".preco").text();
-        var preco = document.getElementsByClassName('preco');
+       // var preco = document.getElementsByClassName('preco');
 
-        var total = 0;
+       // var total = 0;
 
-        for (var i = 0; i < preco.length; i++) {
-            total +=  parseFloat(preco[i].innerHTML);
-        }
+       // for (var i = 0; i < preco.length; i++) {
+        //    total +=  parseFloat(preco[i].innerHTML);
+      //  }
 
-       alert(total);
+       // alert(total);
+        document.getElementById('tabela-dados').classList.remove('d-none');
+        envioTabela();
     });
 });
 
@@ -49,5 +51,28 @@ function pesquisacep() {
         }
     }
 }
+
+
+function envioTabela() {
+    //Copiando os valores para a tabela
+    var preco = document.getElementsByClassName('preco');
+
+    var total = 0;
+
+    for (var i = 0; i < preco.length; i++) {
+        total += parseFloat(preco[i].innerHTML);
+    }
+    document.getElementById('preco').innerHTML = total;
+
+};
+
+
+$(function () {
+    $(document).on('click', '.btn-dark', function (e) {
+        e.preventDefault;
+        $("#limpar-tabela td").remove();
+    });
+});
+
 
 

@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Cadastrar Venda</a>
 </p>
-<table class="table table-danger">
+<table class="table table-danger" id="limpar-tabela">
     <thead>
         <tr>
             <th>
@@ -26,41 +26,57 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PrecoTotal)
-              
+
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cliente.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Preco)
-            </td>
-            <td class="preco">
-                @Html.DisplayFor(modelItem => item.PrecoTotal)
-            </td>
-            <td>
-                <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.IdVenda">Editar</a> 
-                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.IdVenda">Detalhes</a> 
-                <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.IdVenda">Deletar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto.Preco)
+                </td>
+                <td class="preco">
+                    @Html.DisplayFor(modelItem => item.PrecoTotal)
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.IdVenda">Editar</a>
+                    <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.IdVenda">Detalhes</a>
+                    <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.IdVenda">Deletar</a>
+                </td>
+            </tr>
+        }
     </tbody>
-   
+
 </table>
 
-<td><button class='value-plus btn-danger'>Pegar Valores</button></td>
+<td><button class='btn-danger'>Efetuar venda</button></td>
+<td><button class='btn-dark'>Limpar tabela</button></td>
 
 
- 
+<section id="tabela-dados" class="text-bg-secondary p-3 d-none">
+    <table class="table table-danger" id="apagar">
+        <thead>
+            <tr>
+                <th colspan="2">Valor total da compra</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Preco Total:</th>
+                <td id="preco"></td>
+            </tr>
+
+    </table>
+</section>
