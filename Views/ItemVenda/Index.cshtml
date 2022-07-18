@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<desafio_final_atos.Models.ItemVenda>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Itens";
 }
 
-<h1>Index</h1>
+<h1>Itens Vendidos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a  class="btn btn-outline-secondary" asp-action="Create">Cadastrar Item</a>
 </p>
-<table class="table">
+<table class="table table-danger">
     <thead>
         <tr>
             <th>
@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.Produto.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Venda.IdVenda)
+                @Html.DisplayFor(modelItem => item.Venda.Cliente)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantidade)
@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.PrecoTotal)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdItemVenda">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdItemVenda">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdItemVenda">Delete</a>
+                <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.IdItemVenda">Editar</a> 
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.IdItemVenda">Detalhes</a> 
+                <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.IdItemVenda">Deletar</a>
             </td>
         </tr>
 }

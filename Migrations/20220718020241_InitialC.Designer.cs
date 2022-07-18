@@ -11,7 +11,7 @@ using desafio_final_atos.Data;
 namespace desafio_final_atos.Migrations
 {
     [DbContext(typeof(desafio_final_atosContext))]
-    [Migration("20220718014327_InitialC")]
+    [Migration("20220718020241_InitialC")]
     partial class InitialC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,23 +107,12 @@ namespace desafio_final_atos.Migrations
                     b.Property<int>("IdCliente")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdProduto")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("PrecoTotal")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("PrecoUnitario")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
 
                     b.HasKey("IdVenda");
 
                     b.HasIndex("IdCliente");
-
-                    b.HasIndex("IdProduto");
 
                     b.ToTable("Venda");
                 });
@@ -136,15 +125,7 @@ namespace desafio_final_atos.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("desafio_final_atos.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("IdProduto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("Produto");
                 });
 #pragma warning restore 612, 618
         }

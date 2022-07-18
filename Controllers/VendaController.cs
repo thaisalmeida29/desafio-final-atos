@@ -22,7 +22,7 @@ namespace desafio_final_atos.Controllers
         // GET: Venda
         public async Task<IActionResult> Index()
         {
-            var desafio_final_atosContext = _context.Venda.Include(v => v.Cliente).Include(v => v.Produto);
+            var desafio_final_atosContext = _context.Venda.Include(v => v.Cliente);
             return View(await desafio_final_atosContext.ToListAsync());
         }
 
@@ -36,7 +36,6 @@ namespace desafio_final_atos.Controllers
 
             var venda = await _context.Venda
                 .Include(v => v.Cliente)
-                .Include(v => v.Produto)
                 .FirstOrDefaultAsync(m => m.IdVenda == id);
             if (venda == null)
             {
@@ -50,8 +49,6 @@ namespace desafio_final_atos.Controllers
         public IActionResult Create()
         {
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome");
-            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome");
-            ViewData["Preco"] = new SelectList(_context.Produto, "Preco", "Preco");
             return View();
         }
 
@@ -60,16 +57,13 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdVenda,IdCliente,IdProduto,Quantidade,PrecoUnitario,PrecoTotal")] Venda venda)
+        public async Task<IActionResult> Create([Bind("IdVenda,IdCliente,PrecoTotal")] Venda venda)
         {
-           
-                _context.Add(venda);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            
+
+            _context.Add(venda);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome", venda.IdCliente);
-            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", venda.IdProduto);
-            ViewData["Preco"] = new SelectList(_context.Produto, "Preco", "Preco", venda.IdProduto);
             return View(venda);
         }
 
@@ -87,7 +81,6 @@ namespace desafio_final_atos.Controllers
                 return NotFound();
             }
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome", venda.IdCliente);
-            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", venda.IdProduto);
             return View(venda);
         }
 
@@ -96,13 +89,13 @@ namespace desafio_final_atos.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdVenda,IdCliente,IdProduto,Quantidade,PrecoUnitario,PrecoTotal")] Venda venda)
+        public async Task<IActionResult> Edit(int id, [Bind("IdVenda,IdCliente,PrecoTotal")] Venda venda)
         {
             if (id != venda.IdVenda)
-           {
-               return NotFound();
+            {
+                return NotFound();
             }
-        
+
             if (ModelState.IsValid)
             {
                 try
@@ -124,12 +117,11 @@ namespace desafio_final_atos.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Nome", venda.IdCliente);
-            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", venda.IdProduto);
             return View(venda);
         }
 
-            // GET: Venda/Delete/5
-            public async Task<IActionResult> Delete(int? id)
+        // GET: Venda/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Venda == null)
             {
@@ -138,7 +130,6 @@ namespace desafio_final_atos.Controllers
 
             var venda = await _context.Venda
                 .Include(v => v.Cliente)
-                .Include(v => v.Produto)
                 .FirstOrDefaultAsync(m => m.IdVenda == id);
             if (venda == null)
             {
@@ -162,14 +153,14 @@ namespace desafio_final_atos.Controllers
             {
                 _context.Venda.Remove(venda);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool VendaExists(int id)
         {
-          return (_context.Venda?.Any(e => e.IdVenda == id)).GetValueOrDefault();
+            return (_context.Venda?.Any(e => e.IdVenda == id)).GetValueOrDefault();
         }
     }
 }

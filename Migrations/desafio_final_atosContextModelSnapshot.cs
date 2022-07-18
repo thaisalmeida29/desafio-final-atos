@@ -66,6 +66,38 @@ namespace desafio_final_atos.Migrations
                     b.ToTable("Cliente");
                 });
 
+            modelBuilder.Entity("desafio_final_atos.Models.ItemVenda", b =>
+                {
+                    b.Property<int>("IdItemVenda")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdItemVenda"), 1L, 1);
+
+                    b.Property<int>("IdProduto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdVenda")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrecoTotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PrecoUnitario")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdItemVenda");
+
+                    b.HasIndex("IdProduto");
+
+                    b.HasIndex("IdVenda");
+
+                    b.ToTable("ItemVenda");
+                });
+
             modelBuilder.Entity("desafio_final_atos.Models.Produto", b =>
                 {
                     b.Property<int>("IdProduto")
@@ -105,25 +137,33 @@ namespace desafio_final_atos.Migrations
                     b.Property<int>("IdCliente")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdProduto")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("PrecoTotal")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("PrecoUnitario")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
 
                     b.HasKey("IdVenda");
 
                     b.HasIndex("IdCliente");
 
-                    b.HasIndex("IdProduto");
-
                     b.ToTable("Venda");
+                });
+
+            modelBuilder.Entity("desafio_final_atos.Models.ItemVenda", b =>
+                {
+                    b.HasOne("desafio_final_atos.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("IdProduto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("desafio_final_atos.Models.Venda", "Venda")
+                        .WithMany()
+                        .HasForeignKey("IdVenda")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
+
+                    b.Navigation("Venda");
                 });
 
             modelBuilder.Entity("desafio_final_atos.Models.Venda", b =>
@@ -134,15 +174,7 @@ namespace desafio_final_atos.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("desafio_final_atos.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("IdProduto")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("Produto");
                 });
 #pragma warning restore 612, 618
         }

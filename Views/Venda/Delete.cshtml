@@ -8,7 +8,6 @@
 
 <h3>Deseja deletar mesmo esse item?</h3>
 <div>
-    
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -16,24 +15,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Cliente.Cep)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Produto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Produto.CodEAN)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecoUnitario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecoUnitario)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PrecoTotal)
@@ -46,6 +27,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdVenda" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar para a lista</a>
+        <a asp-action="Index">Back to List</a>
     </form>
 </div>

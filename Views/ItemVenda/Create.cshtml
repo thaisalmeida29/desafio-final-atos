@@ -1,52 +1,53 @@
 ﻿@model desafio_final_atos.Models.ItemVenda
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Cadastrar itens";
 }
 
-<h1>Create</h1>
+<h1>Cadastro de Itens</h1>
 
-<h4>ItemVenda</h4>
+
 <hr />
 <div class="row g-3">
-    <div class="row g-3">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="col-md-6">
-                <label asp-for="IdProduto" class="control-label"></label>
-                <select asp-for="IdProduto" class ="form-control" asp-items="ViewBag.IdProduto"></select>
-            </div>
-            <div class="col-md-6">
-                <label asp-for="IdVenda" class="control-label"></label>
-                <select asp-for="IdVenda" class ="form-control" asp-items="ViewBag.IdVenda"></select>
-            </div>
-            <div class="col-md-6">
-                <label asp-for="Quantidade" class="control-label"></label>
-                <input asp-for="Quantidade" class="form-control" />
-                <span asp-validation-for="Quantidade" class="text-danger"></span>
-            </div>
-            <div class="col-md-6">
-                <label asp-for="PrecoUnitario" class="control-label"></label>
-                <input asp-for="PrecoUnitario" class="form-control" />
-                <span asp-validation-for="PrecoUnitario" class="text-danger"></span>
-               
-            </div>
-            <div class="col-md-6">
-                <label asp-for="PrecoTotal" class="control-label"></label>
-                <input asp-for="PrecoTotal" class="form-control" />
-                <span asp-validation-for="PrecoTotal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input class="btn btn-outline-secondary text-dark" type="submit" value="Create" />
-            </div>
-        </form>
-    </div>
+    <form class="row g-3" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-6">
+            <label asp-for="IdProduto" class="control-label"></label>
+            <select asp-for="IdProduto" class="form-control" asp-items="ViewBag.IdProduto"></select>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="IdVenda" class="control-label"></label>
+            <select asp-for="IdVenda" class="form-control" asp-items="ViewBag.IdVenda"></select>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Quantidade" class="control-label"></label>
+            <input id="itemVendaQuantidade" asp-for="Quantidade" class="form-control" />
+            <span asp-validation-for="Quantidade" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="PrecoUnitario" class="control-label"></label>
+            <input id="itemVendaPrecoUnitario" asp-for="PrecoUnitario" class="form-control" />
+            <span asp-validation-for="PrecoUnitario" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="PrecoTotal" class="control-label"></label>
+            <input id="itemVendaPrecoTotal" disabled asp-for="PrecoTotal" class="form-control" />
+            <span asp-validation-for="PrecoTotal" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            <input type="submit" value="Create" class="btn btn-outline-secondary text-dark" />
+        </div>
+        <div class="col-12">
+            <a class="btn btn-outline-secondary text-dark" asp-action="Index">Voltar para a lista</a>
+        </div>
+    </form>
 </div>
 
-<div>
-    <a  class="btn btn-outline-secondary text-dark" asp-action="Index">Voltar para a lista</a>
-</div>
+
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }

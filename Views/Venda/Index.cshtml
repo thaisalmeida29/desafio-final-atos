@@ -1,63 +1,41 @@
 ﻿@model IEnumerable<desafio_final_atos.Models.Venda>
 
 @{
-    ViewData["Title"] = "Venda";
+    ViewData["Title"] = "Vendas";
 }
 
 <h1>Vendas</h1>
 
 <p>
-    <a asp-action="Create">Cadastrar Venda</a>
+    <a  class="btn btn-outline-secondary" asp-action="Create">Cadastrar Venda</a>
 </p>
-<table class="table table-danger" id="limpar-tabela">
+<table class="table table-danger">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Cliente)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Produto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrecoUnitario)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.PrecoTotal)
-
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cliente.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Produto.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Produto.Preco)
-                </td>
-                <td class="preco">
-                    @Html.DisplayFor(modelItem => item.PrecoTotal)
-                </td>
-                <td>
-                    <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.IdVenda">Editar</a>
-                    <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.IdVenda">Detalhes</a>
-                    <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.IdVenda">Deletar</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoTotal)
+            </td>
+            <td>
+                <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.IdVenda">Editar</a> 
+                <a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@item.IdVenda">Detalhes</a> 
+                <a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@item.IdVenda">Deletar</a>
+            </td>
+        </tr>
+}
     </tbody>
-
 </table>
-

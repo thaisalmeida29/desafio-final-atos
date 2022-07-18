@@ -64,6 +64,7 @@ namespace desafio_final_atos.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "CodEAN");
             return View(produto);
         }
 

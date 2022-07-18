@@ -12,14 +12,9 @@ namespace desafio_final_atos.Models
         public int IdCliente { get; set; }
         public virtual Cliente Cliente { get; set; }
 
-        [ForeignKey("Produto")]
-        [Display(Name = "Produto")]
-        public int IdProduto { get; set; }
-        public virtual Produto Produto { get; set; }
-        public int Quantidade { get; set; }
-        [Display(Name = "Preço Unitário")]
-        public decimal PrecoUnitario { get; set; }
         [Display(Name = "Preço Total")]
         public decimal PrecoTotal { get; set; }
+
+        public IEnumerable<ItemVenda> ItemVendas { get; set; }
     }
 }

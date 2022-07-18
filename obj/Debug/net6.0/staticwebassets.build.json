@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oQRUslWLaMUkC/LB2AICQU7Fti5k2yK4E4yXUCnWN3c=",
+  "Hash": "H9PCzykYuveYR/ofuX/ZPs1UplM7kCQN6IwjP0HKNxg=",
   "Source": "desafio-final-atos",
   "BasePath": "_content/desafio-final-atos",
   "Mode": "Default",
@@ -66,6 +66,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\background-cinza-para-site.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\Foto.png",
+      "SourceId": "desafio-final-atos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\",
+      "BasePath": "_content/desafio-final-atos",
+      "RelativePath": "css/Foto.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Foto.png"
+    },
+    {
+      "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\foto1.png",
+      "SourceId": "desafio-final-atos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\",
+      "BasePath": "_content/desafio-final-atos",
+      "RelativePath": "css/foto1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\foto1.png"
     },
     {
       "Identity": "C:\\Users\\thais-almeida\\Documents\\workspace\\desafio-final\\desafio-final-atos\\wwwroot\\css\\FotoPrincipal.png",

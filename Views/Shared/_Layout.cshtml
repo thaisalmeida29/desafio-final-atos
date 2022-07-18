@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light $indigo-100 border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <img src="~/css/logo.png" alt="Sample Photo" width="100px" />
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -31,6 +31,10 @@
                         <li class="nav-item menu">
                             <a class="btn btn-outline-secondary text-dark" asp-area="" asp-controller="Venda" asp-action="Index">Vender</a>
                         </li>
+                          <li class="nav-item menu">
+                            <a class="btn btn-outline-secondary text-dark" asp-area="" asp-controller="ItemVenda" asp-action="Index">Itens vendidos</a>
+                        </li>
+                         
                     </ul>
                 </div>
             </div>
@@ -42,7 +46,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class=" footer text-muted">
         <div class="container">
             &copy; 2022 - Thais Almeida
         </div>
