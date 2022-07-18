@@ -13,7 +13,9 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-md-6">
             <label asp-for="IdProduto" class="control-label"></label>
-            <select asp-for="IdProduto" class="form-control" asp-items="ViewBag.IdProduto"></select>
+            <select asp-for="IdProduto" class="form-control" asp-items="ViewBag.IdProduto">
+                 <option disabled selected>Selecione</option>
+            </select>
         </div>
         <div class="col-md-6">
             <label asp-for="IdVenda" class="control-label"></label>
@@ -26,7 +28,7 @@
         </div>
         <div class="col-md-6">
             <label asp-for="PrecoUnitario" class="control-label"></label>
-            <input id="itemVendaPrecoUnitario" asp-for="PrecoUnitario" class="form-control" />
+            <select id="itemVendaPrecoUnitario" asp-for="PrecoUnitario" class="form-control" asp-items="ViewBag.Preco"></select>
             <span asp-validation-for="PrecoUnitario" class="text-danger"></span>
         </div>
         <div class="col-md-6">

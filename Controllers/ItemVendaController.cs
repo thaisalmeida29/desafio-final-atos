@@ -50,6 +50,7 @@ namespace desafio_final_atos.Controllers
         public IActionResult Create()
         {
             ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome");
+            ViewData["Preco"] = new SelectList(_context.Produto, "Preco", "Preco");
             ViewData["IdVenda"] = new SelectList(_context.Venda, "IdVenda", "IdVenda");
             return View();
         }
@@ -67,6 +68,7 @@ namespace desafio_final_atos.Controllers
             AtualizarVenda(itemVenda.IdVenda);
             return RedirectToAction(nameof(Index));
             ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", itemVenda.IdProduto);
+            ViewData["IdProduto"] = new SelectList(_context.Produto, "Preco", "Preco", itemVenda.PrecoUnitario);
             ViewData["IdVenda"] = new SelectList(_context.Venda, "IdVenda", "IdVenda", itemVenda.IdVenda);
             return View(itemVenda);
         }
