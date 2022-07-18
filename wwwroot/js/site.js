@@ -45,4 +45,7 @@ setInterval(() => {
 
 
 
+$(document).ready(function () {
+    $('#tabela').DataTable();
+});
 

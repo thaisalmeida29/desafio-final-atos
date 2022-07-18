@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/desafio_final_atos.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
     <header>
@@ -31,10 +33,10 @@
                         <li class="nav-item menu">
                             <a class="btn btn-outline-secondary text-dark" asp-area="" asp-controller="Venda" asp-action="Index">Vender</a>
                         </li>
-                          <li class="nav-item menu">
+                        <li class="nav-item menu">
                             <a class="btn btn-outline-secondary text-dark" asp-area="" asp-controller="ItemVenda" asp-action="Index">Itens vendidos</a>
                         </li>
-                         
+
                     </ul>
                 </div>
             </div>
@@ -47,13 +49,21 @@
     </div>
 
     <footer class=" footer text-muted">
+
         <div class="container">
             &copy; 2022 - Thais Almeida
+            <!-- Linkedin -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1"
+               href="https://www.linkedin.com/in/tha%C3%ADs-almeida-16b149199/" target="_blank"><i class="bi bi-linkedin"></i></a>
+            <!-- Github -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://github.com/thaisalmeida29"
+               target="_blank"><i class="bi bi-github"></i></a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
