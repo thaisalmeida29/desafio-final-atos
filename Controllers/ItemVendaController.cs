@@ -89,7 +89,7 @@ namespace desafio_final_atos.Controllers
                 return NotFound();
             }
             ViewData["IdProduto"] = new SelectList(_context.Produto, "IdProduto", "Nome", itemVenda.IdProduto);
-            ViewData["IdVenda"] = new SelectList(_context.Venda, "IdVenda", "IdVenda", itemVenda.IdVenda);
+            ViewData["IdVenda"] = new SelectList(_context.Venda, "IdVenda", "Nome", itemVenda.IdVenda);
             return View(itemVenda);
         }
 
