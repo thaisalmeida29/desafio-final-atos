@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using desafio_final_atos.Data;
 using desafio_final_atos.Models;
+using Newtonsoft.Json;
 
 namespace desafio_final_atos.Controllers
 {
@@ -62,7 +63,9 @@ namespace desafio_final_atos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdItemVenda,IdProduto,IdVenda,Quantidade,PrecoUnitario,PrecoTotal")] ItemVenda itemVenda)
         {
-            itemVenda.PrecoTotal = itemVenda.PrecoUnitario * itemVenda.Quantidade;
+            var produto = _context.Produto.First(p => p.IdProduto == itemVenda.IdProduto);
+            itemVenda.PrecoTotal = (decimal)(produto.Preco * itemVenda.Quantidade);
+            itemVenda.PrecoUnitario = (decimal)produto.Preco;
             _context.Add(itemVenda);
             await _context.SaveChangesAsync();
             AtualizarVenda(itemVenda.IdVenda);
@@ -105,7 +108,9 @@ namespace desafio_final_atos.Controllers
 
             try
             {
-                itemVenda.PrecoTotal = itemVenda.PrecoUnitario * itemVenda.Quantidade;
+                var produto = _context.Produto.First(p => p.IdProduto == itemVenda.IdProduto);
+                itemVenda.PrecoTotal = (decimal)(produto.Preco * itemVenda.Quantidade);
+                itemVenda.PrecoUnitario = (decimal)produto.Preco;
                 _context.Update(itemVenda);
                 await _context.SaveChangesAsync();
                 AtualizarVenda(itemVenda.IdVenda);
@@ -161,13 +166,20 @@ namespace desafio_final_atos.Controllers
             AtualizarVenda(itemVenda.IdVenda);
             return RedirectToAction(nameof(Index));
         }
+        public ActionResult GetPrecoProduto(int idProduto)
+        {
+            var produto = _context.Produto.FirstOrDefault(p => p.IdProduto == idProduto);
+            var result = this.Json(JsonConvert.SerializeObject(produto));
+            return result;
+        }  
+
 
         private bool ItemVendaExists(int id)
         {
             return (_context.ItemVenda?.Any(e => e.IdItemVenda == id)).GetValueOrDefault();
         }
 
-        public void AtualizarVenda(int idVenda)
+        private void AtualizarVenda(int idVenda)
         {
             var venda = _context.Venda.FirstOrDefault(v => v.IdVenda == idVenda);
             var itensVendas = _context.ItemVenda.Where(i => i.IdVenda == idVenda);

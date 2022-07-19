@@ -15,7 +15,9 @@
             <input type="hidden" asp-for="IdItemVenda" />
             <div class="form-group">
                 <label asp-for="IdProduto" class="control-label"></label>
-                <select asp-for="IdProduto" class="form-control" asp-items="ViewBag.IdProduto"></select>
+                <select id="item-venda-id-produto" asp-for="IdProduto" class="form-control" asp-items="ViewBag.IdProduto">
+                    <option disabled selected>Selecione</option>
+                </select>
                 <span asp-validation-for="IdProduto" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -30,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="PrecoUnitario" class="control-label"></label>
-                <input id="itemVendaPrecoUnitario" asp-for="PrecoUnitario" class="form-control" />
+                <input disabled id="itemVendaPrecoUnitario" asp-for="PrecoUnitario" class="form-control" />
                 <span asp-validation-for="PrecoUnitario" class="text-danger"></span>
             </div>
             <div class="form-group">

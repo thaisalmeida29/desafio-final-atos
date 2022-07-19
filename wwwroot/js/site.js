@@ -49,3 +49,24 @@ $(document).ready(function () {
     $('#tabela').DataTable();
 });
 
+$('#item-venda-id-produto').change(function () {
+    var idProduto = $('select[id=item-venda-id-produto] option').filter(':selected').val();
+    $.ajax(
+        {
+            type: 'POST',
+            dataType: 'JSON',
+            url: '/ItemVenda/GetPrecoProduto',
+            data: {
+                idProduto: idProduto
+            },
+            success:
+                function (response) {
+                    response = JSON.parse(response)
+                    $('#itemVendaPrecoUnitario').val(response.Preco);
+                },
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+        });
+});
