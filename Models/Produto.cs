@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace desafio_final_atos.Models
 {
@@ -11,6 +12,8 @@ namespace desafio_final_atos.Models
         [Required]
         public string Nome { get; set; }
         [Required]
+
+        [DataType(DataType.Currency)]
         public float Preco { get; set; }
         [Required]
         public string Estoque { get; set; }

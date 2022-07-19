@@ -70,3 +70,8 @@ $('#item-venda-id-produto').change(function () {
                 }
         });
 });
+
+
+$(document).ready(function () {
+    $('.precomask').mask("#.##0,00", { reverse: true });
+});
